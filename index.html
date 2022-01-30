@@ -5,6 +5,23 @@
 <body>
  
   <script>
+   
+   // URLのパラメータを取得
+   var urlParam = location.search.substring(1);
+ 
+   // URLにパラメータが存在する場合
+   if(urlParam) {
+      // 「&」が含まれている場合は「&」で分割
+      var param = urlParam.split('&');
+      // パラメータを格納する用の配列を用意
+      var paramArray = [];
+ 
+   // 用意した配列にパラメータを格納
+    for (i = 0; i < param.length; i++) {
+    var paramItem = param[i].split('=');
+    paramArray[paramItem[0]] = paramItem[1];
+    }
+   
   function isSmartPhone() {
   if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
     return true;
@@ -15,11 +32,11 @@
 
     document.write( "Auto Redirect..." )
   if ( isSmartPhone() = true ) {
-    window.location.href('https://https://sites.google.com/view/sp74th-teswacha/' + $url)
-    document.write('https://https://sites.google.com/view/sp74th-teswacha/' + $url)
+    window.location.href('https://https://sites.google.com/view/sp74th-teswacha/' + paramArray.url)
+    document.write('https://https://sites.google.com/view/sp74th-teswacha/' + paramArray.url)
   }else{
-    window.location.href('https://https://sites.google.com/view/74th-teswacha/' + $url)
-    document.write('https://https://sites.google.com/view/74th-teswacha/' + $url)
+    window.location.href('https://https://sites.google.com/view/74th-teswacha/' + paramArray.url)
+    document.write('https://https://sites.google.com/view/74th-teswacha/' + paramArray.url)
   }  
   </script>
 
