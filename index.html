@@ -3,22 +3,22 @@
 <title>Auto_Redirect...</title>
 
   <script>
-   
-   // URLのパラメータを取得
-   var urlParam = location.search.substring(1);
- 
-   // URLにパラメータが存在する場合
-   if(urlParam) {
-      // 「&」が含まれている場合は「&」で分割
-      var param = urlParam.split('&');
-      // パラメータを格納する用の配列を用意
-      var paramArray = [];
- 
-   // 用意した配列にパラメータを格納
-    for (i = 0; i < param.length; i++) {
-    var paramItem = param[i].split('=');
-    paramArray[paramItem[0]] = paramItem[1];
-    }
+/**
+ * Get the URL parameter value
+ *
+ * @param  name {string} パラメータのキー文字列
+ * @return  url {url} 対象のURL文字列（任意）
+ */
+function getParam(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
    
   function isSmartPhone() {
   if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
@@ -30,9 +30,9 @@
      
     document.write( "Auto Redirect..." )
   if (isSmartPhone()) {
-    var redirect_url = "https://https://sites.google.com/view/sp74th-teswacha/" + paramArray.url
+    var redirect_url = "https://https://sites.google.com/view/sp74th-teswacha/" + getParam("url")
   }else{
-    var redirect_url = "https://https://sites.google.com/view/sp74th-teswacha/" + paramArray.url
+    var redirect_url = "https://https://sites.google.com/view/sp74th-teswacha/" + getParam("url")
   }
   
   location.href = redirect_url;
