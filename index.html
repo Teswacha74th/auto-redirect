@@ -14,7 +14,7 @@ function getParam(name, url) {
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
         results = regex.exec(url);
-    if (!results) return null;
+    if (!results) return "";
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
@@ -30,15 +30,10 @@ function getParam(name, url) {
      
     document.write( "Auto Redirect..." )
     
-  if ( getParam("url") = null ) {
-    var purl = ""
-    }else{
-    var purl = getParam("url")
-    }
   if (isSmartPhone()) {
-    var redirect_url = "https://sites.google.com/view/sp74th-teswacha/" + purl
+    var redirect_url = "https://sites.google.com/view/sp74th-teswacha/" + getParam("url")
   }else{
-    var redirect_url = "https://sites.google.com/view/74th-teswacha/" + prul
+    var redirect_url = "https://sites.google.com/view/74th-teswacha/" + getParam("url")
   }
     
   location.href = redirect_url;
