@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Auto_Redirect...</title>
+<title>Auto Redirect to Teswacha74th</title>
 
   <script>
 /**
@@ -33,9 +33,12 @@ function getParam(name, url) {
   }else{
     var redirect_url = "https://sites.google.com/view/74th-teswacha/" + getParam("url")
   }
-    document.write( "Redirect to " )
-    document.write( redirect_url )
-    
+
+  const text = document.getElementById('text');
+  text.innerHTML = 'Redirect to' + redirect_url;
+  const text = document.getElementById('text2');
+  text2.innerHTML = 'UA' + navigator.userAgent;
+  
   location.href = redirect_url;
    
   
