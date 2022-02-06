@@ -33,11 +33,6 @@ function getParam(name, url) {
   }else{
     var redirect_url = "https://sites.google.com/view/74th-teswacha/" + getParam("url")
   }
-
-  const text = document.getElementById('text');
-  text.innerHTML = 'Redirect to' + redirect_url;
-  const text = document.getElementById('text2');
-  text2.innerHTML = 'Client_UserAgent: ' + navigator.userAgent;
   
   location.href = redirect_url;
    
